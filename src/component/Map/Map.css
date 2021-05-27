@@ -1,0 +1,8 @@
+.rsm-geography:focus {
+    outline: none;
+}
+
+.rsm-svg {
+    position: relative;
+    top: -175px;
+}

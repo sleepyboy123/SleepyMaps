@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 70px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.points {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 70px;
+    font-family: 'Dancing Script', cursive;
+}
