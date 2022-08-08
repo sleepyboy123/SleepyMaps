@@ -6,7 +6,7 @@ import Title from './component/Title/Title';
 import Map from './component/Map/Map';
 import Country from './component/Country/Country';
 
-const countryJson = require('./country.json');
+const countryJson = require('./component/Country/country.json');
 
 function App() {
 
@@ -16,7 +16,8 @@ function App() {
   const [continent, setContinent] = useState();
 
   useEffect(() => {
-    let random = Math.floor(Math.random() * 177)
+    const number_of_countries = countryJson['ne_110m_admin_0_countries']['geometries'].length
+    let random = Math.floor(Math.random() * number_of_countries)
     setCountry(countryJson['ne_110m_admin_0_countries']['geometries'][random]['properties']['NAME']);
     setContinent(countryJson['ne_110m_admin_0_countries']['geometries'][random]['properties']['CONTINENT']);
   }, [guess]);

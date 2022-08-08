@@ -3,12 +3,11 @@ import { ComposableMap, Geographies, Geography, Sphere, Graticule } from "react-
 
 import './Map.css';
 
-const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+import geoJson from './countries-110m.json'
 
 const Map = ({country, continent, points, setPoints, guess, setGuess}) => {
 
     function handleAnswer(countryName, countryContinent) {
-
         // Flash Correct Country
         var flashCorrect = document.getElementsByClassName(country);
         flashCorrect[0].style.fill = "green";
@@ -23,8 +22,6 @@ const Map = ({country, continent, points, setPoints, guess, setGuess}) => {
             // Add Points based on guess 200 Points for Country, 100 points for Continent
             if (countryName === country) {
                 setPoints(points += 200) 
-            } else if (countryContinent === continent) {
-                setPoints(points += 100) 
             }
         }, 1000);
     }
@@ -39,19 +36,19 @@ const Map = ({country, continent, points, setPoints, guess, setGuess}) => {
             >
                 <Sphere fill="#313A56" stroke="#E4E5E6" strokeWidth={0.5} />
                 <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
-                <Geographies geography={geoUrl}>
+                <Geographies geography={geoJson}>
                     {({ geographies }) =>
                         geographies.map((geo) => {
                             return (
                                 <Geography
-                                    className={geo.properties.NAME}
+                                    className={geo.properties.name}
                                     key={geo.rsmKey}
                                     geography={geo}
                                     fill={"#7396D8"}
                                     stroke={"#4C4C4C"}
                                     strokeWidth={"1"}
                                     onClick={() => 
-                                        handleAnswer(geo.properties.NAME, geo.properties.CONTINENT)
+                                        handleAnswer(geo.properties.name)
                                     }
                                 />
                             );
